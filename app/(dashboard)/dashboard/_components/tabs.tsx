@@ -7,7 +7,7 @@ export default function Tabs() {
   const [activeTab, setActiveTab] = useState("For You");
 
   return (
-    <div className="flex  p-5 gap-4 md:gap-[10rem]   items-left border-b mx-0  md:mx-4  border-[#198989]">
+    <div className="flex  p-5 gap-4 md:gap-[2rem]   items-left border-b mx-0  md:mx-4  border-[#198989]">
       {tabs.map((tab) => (
         <button 
           key={tab}

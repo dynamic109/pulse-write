@@ -1,5 +1,5 @@
 
-import Header from "./_components/header";
+import{Header} from "./_components/header";
 import Footer from "./_components/footer";
 
 export default function RootLayout({

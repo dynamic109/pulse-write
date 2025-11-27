@@ -32,8 +32,8 @@ export default function ProfileHeader() {
   }, []);
 
   return (
-    <header className="w-full border-b border-[#198989] bg-white z-[1000] sticky top-0">
-      <div className="flex items-center justify-between px-4 py-3">
+    <header className="w-full border-b border-[#198989] bg-white z-[200] sticky top-0">
+      <div className="flex items-center justify-between px-8 py-3">
         <div className="flex items-center gap-3">
         <h3 className="text-2xl font-bold text-black whitespace-nowrap">
           PulseWrite

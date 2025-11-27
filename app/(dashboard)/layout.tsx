@@ -1,3 +1,4 @@
+import ProfileHeader from "./dashboard/_components/profile-header";
 
 export default function RootLayout({
   children,
@@ -6,6 +7,7 @@ export default function RootLayout({
 }) {
   return (
    <>
+       <ProfileHeader />
         {children}
      </>
   );
