@@ -80,7 +80,7 @@ export default function CreatePostPage() {
                 {/* Remove Button */}
                 <button 
                   onClick={() => setAttachments(files => files.filter((_, i) => i !== index))}
-                  className="absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all"
+                  className="absolute top-2 right-2bg-[#0f4c4f] hover:bg-[#0b3a3c] hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all"
                 >
                   <X size={16} />
                 </button>
