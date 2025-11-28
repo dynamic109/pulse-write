@@ -63,7 +63,7 @@ export default function ProfileCreate() {
           </p>
         </div>
 
-        <div className="max-w-2xl border-t-2 mt-4 bg-white-100 p-8">
+        <div className="max-w-2xl border-t-1 border-[#D9D9D9] mt-4 bg-white-100 p-8">
           {/* Form */}
         <form onSubmit={handleSubmit} className="mt-2 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
