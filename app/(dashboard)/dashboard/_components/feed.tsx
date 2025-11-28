@@ -138,7 +138,7 @@ export function Feed() {
           <div key={post.id} className="w-full">
             <PostCard
               post={post}
-              onPostClick={() => router.push(`/posts/${post.id}`)}
+              onPostClick={() => router.push(`/post/${post.id}`)}
               onCommentClick={() => setCommentsPostId(post.id)}
             />
           </div>
