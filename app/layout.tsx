@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 // import "./global";
 import { Toaster } from "sonner";
+import "./globals.css"
 
 const plusSansJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -29,6 +33,12 @@ export default function RootLayout({
           richColors
           theme="dark"
         />
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className={`${plusSansJakarta.variable} antialiased`}>
         {children}
       </body>
     </html>
