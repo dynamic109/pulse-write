@@ -13,10 +13,12 @@ const GetStartedModal = ({
   open,
   onOpenChange,
   onSwitchToSignIn,
+  onSwitchToEmailSignUp,
   trigger,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onSwitchToEmailSignUp: () => void;
   onSwitchToSignIn: () => void;
   trigger?: React.ReactNode;
 }) => {
@@ -57,6 +59,7 @@ const GetStartedModal = ({
             Sign up with X
           </Button>
           <Button
+            onClick={() => onSwitchToEmailSignUp?.()}
             size="lg"
             className="bg-[white] hover:bg-[white]/90 text-[#000000] px-8 py-3 h-fit cursor-pointer rounded-full text-base font-semibold tracking-wide border border-[#000000]"
           >
