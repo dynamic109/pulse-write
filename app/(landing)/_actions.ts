@@ -1,4 +1,5 @@
 "use server";
+import { setUserEmail } from "@/lib/app-services/session";
 import axios from "axios";
 
 interface RegisterData {
@@ -11,7 +12,7 @@ const baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 export const register = async (data: RegisterData) => {
   try {
     const response = await axios.post(`${baseURL}/auth/register`, data);
-    console.log("register response:", response.data);
+    await setUserEmail(data.email);
     return response.data;
   } catch (error: any) {
     const errorMessage =
@@ -23,7 +24,20 @@ export const register = async (data: RegisterData) => {
 export const login = async (data: RegisterData) => {
   try {
     const response = await axios.post(`${baseURL}/auth/login`, data);
-    console.log("login response:", response);
+    return response.data;
+  } catch (error: any) {
+    const errorMessage =
+      error.response?.data?.msg || error.message || "Registration failed";
+    throw new Error(errorMessage);
+  }
+};
+
+export const verify = async (code: string, email: string) => {
+  try {
+    const response = await axios.post(`${baseURL}/auth/verify`, {
+      code,
+      email,
+    });
     return response.data;
   } catch (error: any) {
     const errorMessage =

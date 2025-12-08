@@ -27,7 +27,7 @@ const EmailSignUp = ({
   onSwitchToLogin: () => void;
   trigger?: React.ReactNode;
 }) => {
-  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignIn, setIsSignIn] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,7 +41,7 @@ const EmailSignUp = ({
         const response = await register({ email, password });
         toast.success(response?.msg);
         onOpenChange(false);
-        router.push("/verify");
+        router.push("/verification-page");
       }
 
       if (email && password && isSignIn) {
@@ -149,7 +149,7 @@ const EmailSignUp = ({
             onClick={() => setIsSignIn(!isSignIn)}
             className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer"
           >
-            {isSignIn ? "Sign in" : "Sign up"}
+            {isSignIn ? "Sign up" : "Sign in"}
           </Button>
         </p>
       </DialogContent>
