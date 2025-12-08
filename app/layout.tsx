@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+// import "./global";
+import { Toaster } from "sonner";
 import "./globals.css"
 
 const plusSansJakarta = Plus_Jakarta_Sans({
@@ -17,6 +19,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${plusSansJakarta.className} antialiased`}>
+        <Toaster
+          position="bottom-center"
+          closeButton
+          duration={3000}
+          expand={true}
+          richColors
+          theme="dark"
+        />
 }: {
   children: React.ReactNode;
 }) {

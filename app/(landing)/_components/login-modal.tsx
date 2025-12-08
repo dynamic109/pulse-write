@@ -84,10 +84,3 @@ const LoginModal = ({
 };
 
 export default LoginModal;
-
-{/* <Button
-  size="lg"
-  className="bg-[#00747D] hover:bg-[#00747D]/90 text-white px-8 py-3 h-fit cursor-pointer rounded-full text-base font-semibold tracking-wide"
->
-  Start Reading
-</Button>; */}

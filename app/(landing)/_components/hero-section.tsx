@@ -4,10 +4,12 @@ import LoginModal from "./login-modal";
 import GetStartedModal from "./get-started-modal";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import EmailSignUp from "./email-sign-up";
 
 export function HeroSection() {
   const [getStartedOpen, setGetStartedOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+  const [emailSignUpOpen, setEmailSignUpOpen] = useState(false);
 
   return (
     <section className="flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-4 lg:px-6 max-w-[1280px] w-full mx-auto">
@@ -32,6 +34,10 @@ export function HeroSection() {
             setGetStartedOpen(false);
             setLoginOpen(true);
           }}
+          onSwitchToEmailSignUp={() => {
+            setGetStartedOpen(false);
+            setEmailSignUpOpen(true);
+          }}
           trigger={
             <Button
               size="lg"
@@ -47,6 +53,14 @@ export function HeroSection() {
           onSwitchToRegister={() => {
             setLoginOpen(false);
             setGetStartedOpen(true);
+          }}
+        />
+        <EmailSignUp
+          open={emailSignUpOpen}
+          onOpenChange={(open) => setEmailSignUpOpen(open)}
+          onSwitchToLogin={() => {
+            setEmailSignUpOpen(false);
+            setLoginOpen(true);
           }}
         />
       </div>
