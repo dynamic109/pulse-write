@@ -1,24 +1,11 @@
-"use client"
+import OTPVerification from "./_components/otp-verification";
+import { getUserEmail } from "@/lib/app-services/session";
 
-import { useState } from "react"
-import OTPVerification from "./_components/otp-verification"
-import VerificationSuccess from "./_components/verification-success"
-
-export default function Home() {
-  const [isVerified, setIsVerified] = useState(false)
-  const [userEmail, setUserEmail] = useState("banusotobi3@gmail.com")
-
-  const handleVerificationComplete = () => {
-    setIsVerified(true)
-  }
-
+export default async function Home() {
+  const userEmail = await getUserEmail();
   return (
     <main className="min-h-screen bg-white">
-      {!isVerified ? (
-        <OTPVerification email={userEmail} onVerificationComplete={handleVerificationComplete} />
-      ) : (
-        <VerificationSuccess email={userEmail} />
-      )}
+      <OTPVerification email={userEmail ?? ""} />
     </main>
-  )
+  );
 }
