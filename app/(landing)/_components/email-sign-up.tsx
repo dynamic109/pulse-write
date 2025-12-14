@@ -147,7 +147,7 @@ const EmailSignUp = ({
           Already have an account?
           <Button
             onClick={() => setIsSignIn(!isSignIn)}
-            className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer"
+            className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer bg-transparent hover:bg-transparent"
           >
             {isSignIn ? "Sign up" : "Sign in"}
           </Button>

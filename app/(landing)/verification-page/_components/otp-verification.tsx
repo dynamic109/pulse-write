@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Loader } from "lucide-react";
 import { toast } from "sonner";
-import { verify } from "../../_actions";
+import { resendCode, verify } from "../../_actions";
 import VerificationSuccess from "./verification-success";
 
 export default function OTPVerification({ email }: { email: string }) {
@@ -47,9 +47,21 @@ export default function OTPVerification({ email }: { email: string }) {
     }
   };
 
-  const handleResend = () => {
+  const handleResend = async () => {
     setOtp(["", "", "", ""]);
     inputRefs.current[0]?.focus();
+    try {
+      if (email) {
+        setLoading(true);
+        await resendCode(email);
+        toast.success("Check your mail for verification code!");
+      }
+    } catch (error: any) {
+      const errorMsg = error?.message;
+      toast.error(errorMsg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const isComplete = otp.every((digit) => digit !== "");
@@ -104,12 +116,12 @@ export default function OTPVerification({ email }: { email: string }) {
               <div className="mb-6">
                 <p className="text-sm text-foreground/70">
                   Didn't get a code?{" "}
-                  <button
+                  <Button
                     onClick={handleResend}
-                    className="text-teal-700 font-semibold hover:underline"
+                    className="text-teal-700 font-semibold hover:underline bg-transparent shadow-none hover:bg-transparent px-0"
                   >
                     Resend
-                  </button>
+                  </Button>
                 </p>
               </div>
 
