@@ -73,7 +73,7 @@ const LoginModal = ({
           Already have an account?
           <Button
             onClick={() => onSwitchToRegister?.()}
-            className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer"
+            className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer bg-transparent hover:bg-transparent"
           >
             Sign in
           </Button>
