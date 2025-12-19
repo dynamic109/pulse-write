@@ -1,12 +1,24 @@
-"use client"
+"use client";
 
-import Image from "next/image"
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 interface VerificationSuccessProps {
-  email: string
+  email: string;
 }
 
-export default function VerificationSuccess({ email }: VerificationSuccessProps) {
+export default function VerificationSuccess({
+  email,
+}: VerificationSuccessProps) {
+  const router = useRouter();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push("/dashboard");
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [router]);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 relative">
       {/* Top bar elements */}
@@ -19,7 +31,9 @@ export default function VerificationSuccess({ email }: VerificationSuccessProps)
           <div className="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center font-bold text-sm">
             {email.charAt(0).toUpperCase()}
           </div>
-          <span className="text-sm font-medium truncate max-w-[150px]">{email}</span>
+          <span className="text-sm font-medium truncate max-w-[150px]">
+            {email}
+          </span>
         </div>
       </div>
 
@@ -28,7 +42,7 @@ export default function VerificationSuccess({ email }: VerificationSuccessProps)
         {/* Success Image */}
         <div className="flex justify-center mb-8">
           <Image
-            src="/Vector.svg" 
+            src="/Vector.svg"
             alt="Verification Successful"
             width={240}
             height={240}
@@ -37,11 +51,13 @@ export default function VerificationSuccess({ email }: VerificationSuccessProps)
           />
         </div>
 
-        <h2 className="text-4xl font-bold text-foreground mb-3">Verification successful</h2>
+        <h2 className="text-4xl font-bold text-foreground mb-3">
+          Verification successful
+        </h2>
         <p className="text-base text-foreground/70">
           OTP Verified Successfully! Your Account Is Ready
         </p>
       </div>
     </div>
-  )
+  );
 }
