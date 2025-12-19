@@ -7,6 +7,7 @@ import { ArrowLeft, Loader } from "lucide-react";
 import { toast } from "sonner";
 import { resendCode, verify } from "../../_actions";
 import VerificationSuccess from "./verification-success";
+import Link from "next/link";
 
 export default function OTPVerification({ email }: { email: string }) {
   const [otp, setOtp] = useState(["", "", "", ""]);
@@ -137,10 +138,12 @@ export default function OTPVerification({ email }: { email: string }) {
                 </Button>
 
                 {/* Back Link */}
-                <button className="flex items-center justify-center gap-2 text-foreground font-semibold hover:underline mx-auto">
-                  <ArrowLeft size={18} />
-                  Back
-                </button>
+                <Link href={"/"}>
+                  <button className="flex items-center justify-center gap-2 text-foreground font-semibold hover:underline mx-auto">
+                    <ArrowLeft size={18} />
+                    Back
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

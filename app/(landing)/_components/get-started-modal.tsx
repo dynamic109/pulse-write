@@ -4,7 +4,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -77,7 +76,7 @@ const GetStartedModal = ({
           Don’t have an account?
           <Button
             onClick={() => onSwitchToSignIn?.()}
-            className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer"
+            className="p-0 shadow-none bg-transparent hover:bg-transparent text-[#00747D] pl-0.5 hover:underline cursor-pointer"
           >
             Register
           </Button>

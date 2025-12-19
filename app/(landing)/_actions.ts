@@ -1,6 +1,7 @@
 "use server";
 import { setSession, setUserEmail } from "@/lib/app-services/session";
 import axios from "axios";
+import { redirect } from "next/navigation";
 
 interface RegisterData {
   email: string;
@@ -27,6 +28,10 @@ export const login = async (data: RegisterData) => {
     await setSession(response.data.token);
     return response.data;
   } catch (error: any) {
+    if (error?.response?.data?.msg === "Please verify your email first.") {
+      await setUserEmail(data.email);
+      redirect("/verification-page");
+    }
     const errorMessage =
       error.response?.data?.msg || error.message || "Registration failed";
     throw new Error(errorMessage);
