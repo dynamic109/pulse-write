@@ -12,13 +12,13 @@ export function HeroSection() {
   const [emailSignUpOpen, setEmailSignUpOpen] = useState(false);
 
   return (
-    <section className="flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-4 lg:px-6 max-w-[1280px] w-full mx-auto">
-      <div className="flex-1 max-w-[375px] w-full">
-        <h1 className="text-5xl lg:text-6xl font-black text-[#000000] leading-tight flex">
+    <section className="flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen px-4 lg:px-6 max-w-7xl w-full mx-auto">
+      <div className="flex-1 max-w-93.75 w-full">
+        <h1 className="text-4xl lg:text-6xl font-black text-[#000000] leading-tight flex">
           Read <span className="text-[#00747D] ml-2">Boldly.</span>
         </h1>
 
-        <h1 className="text-5xl lg:text-6xl font-black text-[#000000] leading-tight mb-6 flex">
+        <h1 className="text-4xl lg:text-6xl font-black text-[#000000] leading-tight mb-6 flex">
           Write <span className="text-[#00747D] ml-2">Freely.</span>
         </h1>
 
@@ -54,6 +54,10 @@ export function HeroSection() {
             setLoginOpen(false);
             setGetStartedOpen(true);
           }}
+          onSwitchToEmailSignUp={() => {
+            setGetStartedOpen(false);
+            setEmailSignUpOpen(true);
+          }}
         />
         <EmailSignUp
           open={emailSignUpOpen}
@@ -65,7 +69,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="flex">
+      <div className="flex w-full items-center justify-center lg:justify-end">
         <Image
           src={"/Group 2.svg"}
           alt="Group of avatars"

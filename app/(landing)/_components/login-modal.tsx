@@ -12,11 +12,13 @@ const LoginModal = ({
   open,
   onOpenChange,
   onSwitchToRegister,
+  onSwitchToEmailSignUp,
   trigger,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onSwitchToRegister: () => void;
+  onSwitchToEmailSignUp: () => void;
   trigger?: React.ReactNode;
 }) => {
   return (
@@ -56,6 +58,7 @@ const LoginModal = ({
             Sign in with X
           </Button>
           <Button
+            onClick={() => onSwitchToEmailSignUp?.()}
             size="lg"
             className="bg-[white] hover:bg-[white]/90 text-[#000000] px-8 py-3 h-fit cursor-pointer rounded-full text-base font-semibold tracking-wide border border-[#000000]"
           >
@@ -70,12 +73,12 @@ const LoginModal = ({
         </div>
 
         <p className="text-center text-sm">
-          Already have an account?
+          Don’t have an account?
           <Button
             onClick={() => onSwitchToRegister?.()}
             className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer bg-transparent hover:bg-transparent"
           >
-            Sign in
+            Register
           </Button>
         </p>
       </DialogContent>
