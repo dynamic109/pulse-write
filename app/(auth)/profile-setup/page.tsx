@@ -1,34 +1,18 @@
-"use client"; 
+import { getSession } from "@/lib/app-services/session";
+import ProfileCreateForm from "./_components/profile-create-form";
+import { redirect } from "next/navigation";
 
-import Link from "next/link";
-import { getNames } from "country-list";
-import Image from "next/image";
-import { useState } from "react";
-
-export default function ProfileCreate() {
-  const [form, setForm] = useState({
-    fullName: "",
-    username: "",
-    dob: "",
-    country: "",
-    bio: "",
-  });
-  const [country, setCountry] = useState("");
-  const countries = getNames(); 
-  const [value, setValue] = useState("");
-
-
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(form);
-  };
+export default async function Page() {
+  const token = await getSession();
+  
+  
+  // Redirect to login if no token
+  if (!token) {
+    redirect("/login");
+  }
 
   return (
+<<<<<<< HEAD
     <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div >
         {/* Header */}
@@ -171,6 +155,10 @@ export default function ProfileCreate() {
         </div>
         
       </div>
+=======
+    <div className="min-h-screen flex items-center justify-center bg-white px-4 py-8">
+      <ProfileCreateForm token={token} />
+>>>>>>> 1b7f1025d102f7a69d989402dca6ac503633eaca
     </div>
   );
 }
