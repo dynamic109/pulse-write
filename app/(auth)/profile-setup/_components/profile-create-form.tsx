@@ -7,12 +7,12 @@ import { getNames } from "country-list";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@/components/ui/textarea";  
 import {
   Select,
   SelectContent,
   SelectItem,
-  SelectTrigger,
+  SelectTrigger,   
   SelectValue,
 } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -41,7 +41,7 @@ export default function ProfileCreateForm({ token }: ProfileCreateFormProps) {
   const [form, setForm] = useState<FormData>({
     fullName: "",
     username: "",
-    dob: "",
+    dob: "", 
     country: "",
     bio: "",
   });
