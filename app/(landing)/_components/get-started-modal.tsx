@@ -4,7 +4,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -13,10 +12,12 @@ const GetStartedModal = ({
   open,
   onOpenChange,
   onSwitchToSignIn,
+  onSwitchToEmailSignUp,
   trigger,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onSwitchToEmailSignUp: () => void;
   onSwitchToSignIn: () => void;
   trigger?: React.ReactNode;
 }) => {
@@ -57,6 +58,7 @@ const GetStartedModal = ({
             Sign up with X
           </Button>
           <Button
+            onClick={() => onSwitchToEmailSignUp?.()}
             size="lg"
             className="bg-[white] hover:bg-[white]/90 text-[#000000] px-8 py-3 h-fit cursor-pointer rounded-full text-base font-semibold tracking-wide border border-[#000000]"
           >
@@ -74,7 +76,7 @@ const GetStartedModal = ({
           Don’t have an account?
           <Button
             onClick={() => onSwitchToSignIn?.()}
-            className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer"
+            className="p-0 shadow-none bg-transparent hover:bg-transparent text-[#00747D] pl-0.5 hover:underline cursor-pointer"
           >
             Register
           </Button>

@@ -73,7 +73,7 @@ const LoginModal = ({
           Already have an account?
           <Button
             onClick={() => onSwitchToRegister?.()}
-            className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer"
+            className="p-0 shadow-none text-[#00747D] pl-0.5 hover:underline cursor-pointer bg-transparent hover:bg-transparent"
           >
             Sign in
           </Button>
@@ -84,10 +84,3 @@ const LoginModal = ({
 };
 
 export default LoginModal;
-
-{/* <Button
-  size="lg"
-  className="bg-[#00747D] hover:bg-[#00747D]/90 text-white px-8 py-3 h-fit cursor-pointer rounded-full text-base font-semibold tracking-wide"
->
-  Start Reading
-</Button>; */}
