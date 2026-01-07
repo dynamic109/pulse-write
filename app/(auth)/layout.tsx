@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusSansJakarta.className} antialiased`}>
+      <body className={`${plusSansJakarta.className} antialiased`} suppressHydrationWarning> 
         {children}
       </body>
     </html>
