@@ -73,12 +73,12 @@ const GetStartedModal = ({
         </div>
 
         <p className="text-center text-sm">
-          Don’t have an account?
+          Already have an account?
           <Button
             onClick={() => onSwitchToSignIn?.()}
             className="p-0 shadow-none bg-transparent hover:bg-transparent text-[#00747D] pl-0.5 hover:underline cursor-pointer"
           >
-            Register
+            Sign in
           </Button>
         </p>
       </DialogContent>
