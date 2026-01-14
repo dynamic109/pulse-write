@@ -14,7 +14,7 @@ export default function VerificationSuccess({
   const router = useRouter();
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.push("/dashboard");
+      router.push("/profile-setup");
     }, 3000);
     return () => clearTimeout(timer);
   }, [router]);
@@ -31,7 +31,7 @@ export default function VerificationSuccess({
           <div className="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center font-bold text-sm">
             {email.charAt(0).toUpperCase()}
           </div>
-          <span className="text-sm font-medium truncate max-w-[150px]">
+          <span className="text-sm font-medium truncate max-w-37.5">
             {email}
           </span>
         </div>
