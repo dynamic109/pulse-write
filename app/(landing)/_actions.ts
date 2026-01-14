@@ -44,6 +44,7 @@ export const verify = async (code: string, email: string) => {
       code,
       email,
     });
+    await setSession(response.data.token);
     return response.data;
   } catch (error: any) {
     const errorMessage =
